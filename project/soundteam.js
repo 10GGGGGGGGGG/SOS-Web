@@ -2,7 +2,7 @@
     // https://github.com/tensorflow/tfjs-models/tree/master/speech-commands
 
     // the link to your model provided by Teachable Machine export panel
-    const URL = "https://teachablemachine.withgoogle.com/models/AlIyPEx0/";
+    const URL = "https://teachablemachine.withgoogle.com/models/_q8lY1fY/";
 
     async function createModel() {
         const checkpointURL = URL + "model.json"; // model topology
@@ -35,15 +35,15 @@
             // render the probability scores per class
             var index = getMax(result.scores);
 
-             if((classLabels[index]=="equipo")&&(result.scores[index]>0.95)){
+             if((classLabels[index]=="equipo")&&(result.scores[index]>0.90)){
                     window.location.href = 'team.html';
-             }else  if((classLabels[index]=="portada")&&(result.scores[index]>0.95)){
+             }else  if((classLabels[index]=="portada")&&(result.scores[index]>0.90)){
              		window.location.href = 'index.html';
-             }else  if((classLabels[index]=="abajo")&&(result.scores[index]>0.95)){
-             		window.location.href = 'index.html#myfooter';
+             }else  if((classLabels[index]=="abajo")&&(result.scores[index]>0.90)){
+             		window.location.href = 'team.html#myfooter';
              }
-             else  if((classLabels[index]=="arriba")&&(result.scores[index]>0.95)){
-             		window.location.href = 'index.html#mymenu';
+             else  if((classLabels[index]=="arriba")&&(result.scores[index]>0.90)){
+             		window.location.href = 'team.html#testimonials';
              }
         }, {
             includeSpectrogram: true, // in case listen should return result.spectrogram
