@@ -4,6 +4,14 @@
     // the link to your model provided by Teachable Machine export panel
     const URL = "https://teachablemachine.withgoogle.com/models/_q8lY1fY/";
 
+
+    window.onload = function() {
+        if(sessionStorage.getItem("activated")=="true"){
+            init();
+        }
+    };
+
+
     async function createModel() {
         const checkpointURL = URL + "model.json"; // model topology
         const metadataURL = URL + "metadata.json"; // model metadata
@@ -20,6 +28,7 @@
         return recognizer;
     }
     async function init() {
+        sessionStorage.setItem("activated", "true");
         const recognizer = await createModel();
         const classLabels = recognizer.wordLabels(); // get class labels
         const labelContainer = document.getElementById("label-container");
