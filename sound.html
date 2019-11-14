@@ -45,14 +45,6 @@
                 const classPrediction = classLabels[i] + ": " + result.scores[i].toFixed(2);
                 labelContainer.childNodes[i].innerHTML = classPrediction;
             }
-            var index = getMax(result.scores);
-            if((classLabels[index]=="equipo")&&(result.scores[index]>0.98)){
-                    //window.location.href = 'http://www.google.es';
-                    for (let i = 0; i < classLabels.length; i++) {
-                    	console.log(classLabels[i] + ": " + result.scores[i]);
-                    }
-                    console.log("mayor= "+classLabels[index] + ": " + result.scores[index]);
-                }
         }, {
             includeSpectrogram: true, // in case listen should return result.spectrogram
             probabilityThreshold: 0.75,
@@ -62,16 +54,5 @@
 
         // Stop the recognition in 5 seconds.
         // setTimeout(() => recognizer.stopListening(), 5000);
-    }
-    function getMax(resultArray){
-        var max=0;
-        var index=0;
-        for(let i=0;i<resultArray.length;i++){
-            if(resultArray[i]>max){
-                max=resultArray[i];
-                index=i;
-            }
-        }
-        return index;
     }
 </script>

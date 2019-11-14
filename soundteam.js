@@ -43,16 +43,21 @@
             const scores = result.scores; // probability of prediction for each class
             // render the probability scores per class
             var index = getMax(result.scores);
+            var minValue = 0.80;
 
-             if((classLabels[index]=="equipo")&&(result.scores[index]>0.90)){
+             if((classLabels[index]=="equipo")&&(result.scores[index]>minValue)){
                     window.location.href = 'team.html';
-             }else  if((classLabels[index]=="portada")&&(result.scores[index]>0.90)){
+             }else  if((classLabels[index]=="portada")&&(result.scores[index]>minValue)){
              		window.location.href = 'index.html';
-             }else  if((classLabels[index]=="abajo")&&(result.scores[index]>0.90)){
+             }else  if((classLabels[index]=="abajo")&&(result.scores[index]>minValue)){
              		window.location.href = 'team.html#myfooter';
              }
-             else  if((classLabels[index]=="arriba")&&(result.scores[index]>0.90)){
+             else  if((classLabels[index]=="arriba")&&(result.scores[index]>minValue)){
              		window.location.href = 'team.html#testimonials';
+             }
+             else  if((classLabels[index]=="cerrar")&&(result.scores[index]>minValue)){
+                    alert("hi");
+                    window.close();
              }
         }, {
             includeSpectrogram: true, // in case listen should return result.spectrogram
